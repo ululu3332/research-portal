@@ -876,6 +876,35 @@
     .jstep-badge { display: none; }
     .outcome-list { grid-template-columns: 1fr; }
     .banner-note { display: none; }
+
+    /* Mobile padding adjustments */
+    nav { padding: 0 1rem; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .tab-bar { padding: 0 1rem; }
+    .intro-wrap { padding: 0 1rem; }
+    .section { padding: 0 1rem; }
+    .participant-banner { padding: 0 1rem; }
+    .timeline-strip { padding: 0 1rem; }
+    .researcher-card { padding: 1.4rem 1.2rem; gap: 1.2rem; }
+    .intro-block { padding: 1.2rem 1rem; }
+    .banner-inner { padding: 1rem; }
+    .card { padding: 1.1rem 1.2rem; }
+    .card-title { font-size: 0.92rem; }
+    .section-header { flex-wrap: wrap; gap: 0.5rem; }
+    .section-status { margin-left: 0; }
+    .tab-inner { width: 100%; justify-content: center; }
+    .tab-btn { flex: 1; text-align: center; padding: 0.45rem 0.8rem; }
+    .timeline-inner { padding: 1rem; }
+    .tl-label { font-size: 0.62rem; }
+    .btn { font-size: 0.75rem; padding: 0.45rem 0.9rem; }
+    .card-actions { flex-direction: column; }
+    .card-actions .btn { width: 100%; justify-content: center; }
+  }
+
+  @media (max-width: 400px) {
+    .hero-title { font-size: 1.6rem; }
+    .hero-meta { gap: 0.8rem; }
+    .nav-logo { font-size: 0.82rem; }
   }
 
   /* ── Card ── */
@@ -1072,12 +1101,17 @@
   }
 
   .fade-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up.anim-ready {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up.anim-ready.visible { opacity: 1; transform: translateY(0); }
 
   footer {
     position: relative;
@@ -1198,7 +1232,7 @@
             </div>
           </div>
           <div class="jstep-label">知情同意</div>
-          <div class="jstep-sub">了解研究内容<br>签署同意书</div>
+          <div class="jstep-sub">了解研究内容<br>查看研究说明书</div>
           <div class="jstep-badge jsbadge-blue">研究开始前</div>
         </div>
 
@@ -1351,9 +1385,9 @@
       <div class="ptype ptype-a active-a" onclick="filterType('ph1')">
         <div class="ptype-icon">👨‍🏫</div>
         <div>
-          <div class="ptype-label">阶段 1 · 受访教师</div>
+          <div class="ptype-label">阶段 1 · 需求调查</div>
           <div class="ptype-title">教师技术整合需求</div>
-          <div class="ptype-desc">您需要完成：半结构化访谈（20分钟）+ 配套文件提供（自愿）</div>
+          <div class="ptype-desc">您需要完成：半结构化访谈（20分钟）+ 量表 + 配套文件提供（自愿）</div>
         </div>
       </div>
       <div class="ptype ptype-b" onclick="filterType('ph2')">
@@ -1369,7 +1403,7 @@
         <div>
           <div class="ptype-label">阶段 3 · 干预参与者</div>
           <div class="ptype-title">AI 辅助教学干预实验</div>
-          <div class="ptype-desc">您需要完成：前测量表（5分钟）+ 3周 DST 干预课程 + 后测量表</div>
+          <div class="ptype-desc">您需要完成：前测量表（15分钟）+ 3周 DST 干预课程 + 后测量表</div>
         </div>
       </div>
       <p class="banner-note">💡 点击上方卡片可高亮显示您需要完成的任务模块 · 不确定参与阶段请联系研究者</p>
@@ -1383,7 +1417,7 @@
       <h2 class="section-title">乡村教师访谈 &amp; 量表填写</h2>
     </div>
     <div class="info-box">
-      本部分仅供 <strong>阶段 1 受访教师</strong>（乡村教师）使用。请完成：① 半结构化访谈（约 20 分钟）② 两份量表（约 5 分钟）。量表可在访谈当天完成，数据仅作研究基准，请如实填写。
+      本部分仅供 <strong>阶段 1 受访教师</strong>（乡村教师）使用。请完成：① 半结构化访谈（约 20 分钟）② 一份量表（约 8 分钟）。量表可在访谈当天完成，数据仅作研究基准，请如实填写。
     </div>
 
     <div class="subsection-label">🎙️ 访谈</div>
@@ -1399,7 +1433,7 @@
         <p class="card-desc">访谈围绕技术整合挑战、技术融入现状、学校培训支持三个方面展开，约 15 个核心问题 + 追问策略。支持语音输入。</p>
         <div class="card-meta">
           <span class="tag">半结构化</span>
-          <span class="tag">20 分钟</span>
+          <span class="tag">60 分钟</span>
           <span class="status-pill status-preview"><span class="status-dot"></span>预览开放</span>
         </div>
         <div class="card-actions">
@@ -1428,7 +1462,7 @@
           <a href="【替换为腾讯/飞书文档只读链接】" target="_blank" class="btn btn-primary-ph1">
             <span class="btn-icon">📋</span> 查看清单
           </a>
-          <a href="mailto:chenglu9898@gmail.com" class="btn btn-primary-ph1">
+          <a href="/cdn-cgi/l/email-protection#e88b808d868f849dd1d0d1d0a88f85898184c68b8785" class="btn btn-primary-ph1">
   <span class="btn-icon">📤</span> 提交材料
           </a>
         </div>
@@ -1442,43 +1476,23 @@
           <span class="card-icon">📏</span>
           <div>
             <div class="card-type ct-dst">量表 · 必填</div>
-            <div class="card-title">DSE 数字故事叙述<br>自我效能量表</div>
+            <div class="card-title">数字自我效能与反思能力量表</div>
           </div>
         </div>
-        <p class="card-desc">基于 Ulfert-Blank (2022) 开发，评估您在数字故事叙述方面的自我效能感。约 20 道题，5-8 分钟完成。</p>
+        <p class="card-desc">评估您在数字故事叙述方面的自我效能感和反思能力。约 32 道题，5-8 分钟完成。</p>
         <div class="card-meta">
           <span class="tag tag-dst">必填</span>
           <span class="tag">约 8 分钟</span>
           <span class="status-pill status-open"><span class="status-dot"></span>填写开放</span>
         </div>
         <div class="card-actions">
-          <a href="https://v.wjx.cn/vm/wOMWHzM.aspx#" target="_blank" class="btn btn-primary-dst">
+          <a href="https://v.wjx.cn/vm/YDciTEK.aspx# " target="_blank" class="btn btn-primary-dst">
             <span class="btn-icon">✏️</span> 立即填写
           </a>
         </div>
       </div>
-      <div class="card card-dst">
-        <div class="card-head">
-          <span class="card-icon">🪞</span>
-          <div>
-            <div class="card-type ct-dst">量表 · 必填</div>
-            <div class="card-title">Kember 反思量表<br>（教学反思版）</div>
-          </div>
-        </div>
-        <p class="card-desc">基于 Kember et al. (2000) 开发，评估您当前的教学反思水平（习惯性行为 / 理解 / 反思 / 批判性反思）。约 16 道题。</p>
-        <div class="card-meta">
-          <span class="tag tag-dst">必填</span>
-          <span class="tag">约 5 分钟</span>
-          <span class="status-pill status-open"><span class="status-dot"></span>填写开放</span>
-        </div>
-        <div class="card-actions">
-          <a href="https://v.wjx.cn/vm/PdtuJkf.aspx#" target="_blank" class="btn btn-primary-dst">
-            <span class="btn-icon">✏️</span> 立即填写
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+    </div><!-- /cards cards-2 阶段1量表 -->
+  </div><!-- /section-ph1 -->
 
   <!-- 阶段 2 -->
   <div class="section fade-up" id="section-ph2">
@@ -1625,94 +1639,165 @@
         </div>
       </div>
     </div>
-
-    <!-- 干预后 -->
-    <div class="subsection-label">② 干预后</div>
-    <div class="cards cards-2" style="margin-bottom:1rem">
+  <!-- ② 干预中 -->
+    <div class="subsection-label">② 干预中（课程过程产出）</div>
+    <div class="info-box" style="background:#f0fff4;border-color:#4caf70;color:#1a6a2a;margin-bottom:1rem">
+      💡 以下内容为课程学习产出，<strong>嵌入培训课程任务中完成</strong>，非额外问卷，不增加额外负担。
+    </div>
+    <div class="cards cards-2" style="margin-bottom:1.4rem">
       <div class="card card-dst">
         <div class="card-head">
-          <span class="card-icon">📊</span>
+          <span class="card-icon">📝</span>
           <div>
-            <div class="card-type ct-dst">后测问卷 · 必填</div>
-            <div class="card-title">技术能力问卷<br>（后测）</div>
+            <div class="card-type ct-dst">课程产出 · 嵌入任务</div>
+            <div class="card-title">数字化教案<br>（过程性提交）</div>
           </div>
         </div>
-        <p class="card-desc">与前测问卷内容相同，用于对比干预前后您在技术整合教学能力方面的变化。</p>
+        <p class="card-desc">在培训第 3 周提交一份整合 AI 工具的数字化教案，作为课程实践作业。研究者将提供教案模板与示例，无需额外准备。</p>
         <div class="card-meta">
-          <span class="tag tag-dst">干预后完成</span>
-          <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+          <span class="tag tag-dst">第 3 周提交</span>
+          <span class="tag">嵌入课程</span>
+          <span class="status-pill status-pending"><span class="status-dot"></span>培训期间开放</span>
         </div>
         <div class="card-actions">
-          <a href="#" class="btn btn-disabled" onclick="return false;">
-            <span class="btn-icon">🔒</span> 暂未开放
-          </a>
+          <a href="#" class="btn btn-disabled" onclick="return false;"><span class="btn-icon">🔒</span> 培训期间开放</a>
         </div>
       </div>
       <div class="card card-dst">
         <div class="card-head">
-          <span class="card-icon">📋</span>
+          <span class="card-icon">🎬</span>
           <div>
-            <div class="card-type ct-dst">后测问卷 · 必填</div>
-            <div class="card-title">培训需求问卷<br>（后测）</div>
+            <div class="card-type ct-dst">课程产出 · 嵌入任务</div>
+            <div class="card-title">DST 数字故事<br>视频（作品提交）</div>
           </div>
         </div>
-        <p class="card-desc">评估参加培训课程后您对专业发展的需求是否有所变化，以及对本次培训的满意度。</p>
+        <p class="card-desc">在培训结束前，使用 AI 工具完成并提交一段 3-5 分钟的数字故事叙述视频。视频制作为培训最终作品，研究者提供全程技术支持。</p>
         <div class="card-meta">
-          <span class="tag tag-dst">干预后完成</span>
-          <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+          <span class="tag tag-dst">培训末期提交</span>
+          <span class="tag">AI 工具辅助</span>
+          <span class="status-pill status-pending"><span class="status-dot"></span>培训期间开放</span>
         </div>
         <div class="card-actions">
-          <a href="#" class="btn btn-disabled" onclick="return false;">
-            <span class="btn-icon">🔒</span> 暂未开放
-          </a>
+          <a href="#" class="btn btn-disabled" onclick="return false;"><span class="btn-icon">🔒</span> 培训期间开放</a>
         </div>
       </div>
     </div>
-    <div class="cards cards-2">
-      <div class="card card-dst">
-        <div class="card-head">
-          <span class="card-icon">📐</span>
-          <div>
-            <div class="card-type ct-dst">后测评估 · 必填</div>
-            <div class="card-title">后测评估量规<br>评分表（教案）</div>
-          </div>
-        </div>
-        <p class="card-desc">提交一份经过干预后重新设计的教案，研究者将与前测教案进行对比评估，衡量教学设计能力的提升。</p>
-        <div class="card-meta">
-          <span class="tag tag-dst">干预后提交</span>
-          <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
-        </div>
-        <div class="card-actions">
-          <a href="#" class="btn btn-disabled" onclick="return false;">
-            <span class="btn-icon">🔒</span> 暂未开放
-          </a>
-        </div>
+ 
+  <!-- 干预后 -->
+<div class="subsection-label">③ 干预后</div>
+
+<div class="cards cards-2" style="margin-bottom:1rem">
+  <div class="card card-dst">
+    <div class="card-head">
+      <span class="card-icon">📊</span>
+      <div>
+        <div class="card-type ct-dst">后测问卷 · 必填</div>
+        <div class="card-title">技术能力问卷<br>（后测）</div>
       </div>
-      <div class="card card-dst">
-        <div class="card-head">
-          <span class="card-icon">🗣️</span>
-          <div>
-            <div class="card-type ct-dst">访谈 · 必填（部分参与者）</div>
-            <div class="card-title">焦点小组<br>访谈提纲</div>
-          </div>
-        </div>
-        <p class="card-desc">干预结束后，将邀请部分参与者参加小组访谈，分享培训体验与课堂应用反馈，约 45 分钟。</p>
-        <div class="card-meta">
-          <span class="tag tag-dst">部分参与者</span>
-          <span class="tag">约 45 分钟</span>
-          <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
-        </div>
-        <div class="card-actions">
-          <a href="【替换为访谈提纲预览链接】" target="_blank" class="btn btn-primary-dst">
-            <span class="btn-icon">👁️</span> 预览提纲
-          </a>
-          <a href="【替换为PDF下载链接】" target="_blank" class="btn btn-outline">
-            <span class="btn-icon">⬇️</span> 下载 PDF
-          </a>
-        </div>
-      </div>
+    </div>
+    <p class="card-desc">与前测问卷内容相同，用于对比干预前后您在技术整合教学能力方面的变化。</p>
+    <div class="card-meta">
+      <span class="tag tag-dst">干预后完成</span>
+      <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+    </div>
+    <div class="card-actions">
+      <a href="#" class="btn btn-disabled" onclick="return false;">
+        <span class="btn-icon">🔒</span> 暂未开放
+      </a>
     </div>
   </div>
+
+  <div class="card card-dst">
+    <div class="card-head">
+      <span class="card-icon">📋</span>
+      <div>
+        <div class="card-type ct-dst">后测问卷 · 必填</div>
+        <div class="card-title">培训需求问卷<br>（后测）</div>
+      </div>
+    </div>
+    <p class="card-desc">评估参加培训课程后您对专业发展的需求是否有所变化，以及对本次培训的满意度。</p>
+    <div class="card-meta">
+      <span class="tag tag-dst">干预后完成</span>
+      <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+    </div>
+    <div class="card-actions">
+      <a href="#" class="btn btn-disabled" onclick="return false;">
+        <span class="btn-icon">🔒</span> 暂未开放
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cards cards-2">
+  <div class="card card-dst" style="border-top:3px solid #9c4ec0">
+    <div class="card-head">
+      <span class="card-icon">📏</span>
+      <div>
+        <div class="card-type" style="color:#5a1a7a;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.2rem">后测量表 · 必填</div>
+        <div class="card-title">DSE 自我效能量表<br>（后测）</div>
+      </div>
+    </div>
+    <p class="card-desc">与阶段 1 填写的 DSE 量表相同，用于评估经过培训后您在数字故事叙述方面的自我效能感变化（约 8 分钟）。</p>
+    <div class="card-meta">
+      <span class="tag" style="background:#f3e5f5;color:#5a1a7a;border-color:rgba(90,26,122,0.25)">约 8 分钟</span>
+      <span class="tag tag-dst">干预后完成</span>
+      <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+    </div>
+    <div class="card-actions">
+      <a href="#" class="btn btn-disabled" onclick="return false;">
+        <span class="btn-icon">🔒</span> 暂未开放
+      </a>
+    </div>
+  </div>
+
+  <div class="card card-dst" style="border-top:3px solid #9c4ec0">
+    <div class="card-head">
+      <span class="card-icon">🪞</span>
+      <div>
+        <div class="card-type" style="color:#5a1a7a;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.2rem">后测量表 · 必填</div>
+        <div class="card-title">Kember 反思量表<br>（后测）</div>
+      </div>
+    </div>
+    <p class="card-desc">与阶段 1 填写的反思量表相同，用于评估培训后您的教学反思水平变化（约 5 分钟）。</p>
+    <div class="card-meta">
+      <span class="tag" style="background:#f3e5f5;color:#5a1a7a;border-color:rgba(90,26,122,0.25)">约 5 分钟</span>
+      <span class="tag tag-dst">干预后完成</span>
+      <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+    </div>
+    <div class="card-actions">
+      <a href="#" class="btn btn-disabled" onclick="return false;">
+        <span class="btn-icon">🔒</span> 暂未开放
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cards cards-1" style="margin-top:1rem">
+  <div class="card card-dst">
+    <div class="card-head">
+      <span class="card-icon">🗣️</span>
+      <div>
+        <div class="card-type ct-dst">访谈 · 必填（部分参与者）</div>
+        <div class="card-title">焦点小组访谈提纲</div>
+      </div>
+    </div>
+    <p class="card-desc">干预结束后，将邀请部分参与者参加小组访谈，分享培训体验与课堂应用反馈，约 60 分钟。</p>
+    <div class="card-meta">
+      <span class="tag tag-dst">部分参与者</span>
+      <span class="tag">约 60 分钟</span>
+      <span class="status-pill status-pending"><span class="status-dot"></span>干预后开放</span>
+    </div>
+    <div class="card-actions">
+      <a href="【替换为访谈提纲预览链接】" target="_blank" class="btn btn-primary-dst">
+        <span class="btn-icon">👁️</span> 预览提纲
+      </a>
+      <a href="【替换为PDF下载链接】" target="_blank" class="btn btn-outline">
+        <span class="btn-icon">⬇️</span> 下载 PDF
+      </a>
+    </div>
+  </div>
+</div>
+  </div><!-- /section-dst -->
 
   <!-- 参与须知 -->
   <div class="section fade-up" id="section-fdm">
@@ -1731,7 +1816,7 @@
         </div>
         <p class="card-desc">所有数据仅用于学术研究，参与者信息将严格匿名处理（使用参与者编码代替真实姓名）。研究结果仅以汇总形式呈现。</p>
         <div class="card-actions">
-          <a href="【替换为知情同意书链接】" target="_blank" class="btn btn-outline">
+          <a href="【金山文档 | WPS云文档】 知情同意书1 https://www.kdocs.cn/l/calhmZl6lywB" target="_blank" class="btn btn-outline">
             <span class="btn-icon">📄</span> 查看知情同意书
           </a>
         </div>
@@ -1747,10 +1832,10 @@
         <p class="card-desc">
           <strong>A 类：</strong>访谈 20min + 前测量表 5min<br>
           <strong>B 类：</strong>前测量表 15min<br>
-          <strong>专家组：</strong>访谈 20min + FDM 两轮约 50min
+          <strong>专家组：</strong>访谈 90min + FDM 两轮约 50min
         </p>
         <div class="card-actions">
-          <a href="【替换为研究说明文档】" target="_blank" class="btn btn-outline">
+          <a href="【金山文档 | WPS云文档】 研究说明 https://www.kdocs.cn/l/calhmZl6lywB" target="_blank" class="btn btn-outline">
             <span class="btn-icon">📋</span> 研究说明
           </a>
         </div>
@@ -1765,10 +1850,10 @@
         </div>
         <p class="card-desc">如有任何疑问或技术问题，请通过以下方式联系研究者：</p>
         <div class="card-meta">
-          <span class="tag">📧 lulucheng998@gmail.com</span>
+          <span class="tag">📧 <a href="lulucheng998@gmail.com" class="__cf_email__" data-cfemail="422e372e37212a272c257b7b7a02252f232b2e6c212d2f">[email&#160;protected]</a></span>
         </div>
         <div class="card-actions">
-          <a href="mailto:lulucheng998@gmail.com" class="btn btn-outline">
+          <a href="lulucheng998@gmail.com" class="btn btn-outline">
             <span class="btn-icon">✉️</span> 发送邮件
           </a>
         </div>
@@ -1782,10 +1867,10 @@
 <footer>
   <p class="footer-logo">研究参与者门户</p>
   <p>数字化教师专业发展研究 · 阶段 1 · 2 · 3<br>程璐 · University of Malaya · PhD in 教师技术教育</p>
-  <p style="margin-top:0.5rem">© 研究者所有 · 仅用于实验研究数据收集 · <a href="mailto:lulucheng998@gmail.com">联系研究者</a></p>
+  <p style="margin-top:0.5rem">© 研究者所有 · 仅用于实验研究数据收集 · <a href="/cdn-cgi/l/email-protection#e78b928b92848f828980dededfa7808a868e8bc984888a">联系研究者</a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Progress bar
 window.addEventListener('scroll', () => {
   const total = document.documentElement.scrollHeight - window.innerHeight;
@@ -1799,12 +1884,19 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.classList.add('anim-ready');
   el.style.transitionDelay = (i * 0.06) + 's';
   obs.observe(el);
 });
+// Safety fallback: if observer never fires (e.g. in iframe), show all after 800ms
+setTimeout(() => {
+  document.querySelectorAll('.fade-up.anim-ready:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 800);
 
 // Tab switch (intro / tasks)
-function switchTab(panel, btn) {
+window.switchTab = function(panel, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('panel-' + panel).classList.add('active');
@@ -1812,7 +1904,7 @@ function switchTab(panel, btn) {
 }
 
 // Diagram tab switch
-function switchDiagram(id, btn) {
+window.switchDiagram = function(id, btn) {
   document.querySelectorAll('.dtab-content').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.dtab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -1820,7 +1912,7 @@ function switchDiagram(id, btn) {
 }
 
 // Participant type filter
-function filterType(phase) {
+window.filterType = function(phase) {
   document.querySelectorAll('.ptype').forEach(el => {
     el.classList.remove('active-a', 'active-b');
     el.style.opacity = '0.45';
@@ -1834,14 +1926,12 @@ function filterType(phase) {
     ph2: { card: '.ptype-b', cls: 'active-b', section: 'section-ph2' },
     ph3: { card: '.ptype-c', cls: 'active-a', section: 'section-dst' },
   };
-  const cfg = map[phase];
-  if (!cfg) return;
-  document.querySelectorAll(cfg.card).forEach(el => {
-    el.classList.add(cfg.cls);
-    el.style.opacity = '1';
-  });
-  const target = document.getElementById(cfg.section);
-  if (target) { target.style.opacity = '1'; target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  const target = map[phase];
+  if (!target) return;
+  document.querySelector(target.card)?.classList.add(target.cls);
+  document.querySelector(target.card)?.style && (document.querySelector(target.card).style.opacity = '1');
+  const sec = document.getElementById(target.section);
+  if (sec) { sec.style.opacity = '1'; sec.style.transition = 'opacity 0.4s'; }
 }
 </script>
 </body>
